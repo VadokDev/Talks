@@ -12,7 +12,7 @@ Esta pasión me ha llevado a participar de diversas iniciativas, siendo OCILabs 
 
 Éstos niveles van desde el básico, donde se enseña el pensamiento computacional a través de Scratch, luego sigue el intermedio donde refuerzan estos contenidos de la mano del lenguaje de programación C++, y finalmente el avanzado, donde todo el conocimiento previo se lleva a otro nivel con estructuras de datos y algoritmos más complejos, de cara a participar de las Olimpiadas Chilenas de Informática.
 
-Han participado un total de [TOTAL ESTUDIANTES], a lo largo de estos [CANTIDAD DE AÑOS], lo cual ha sido posible gracias a los [TOTAL DE TUTORES] tutores que nos han apoyado, y que además del conocimiento entregado, tenemos un total de [TOTAL CLASIFICADORES OCI] estudiantes que clasificaron a las finales de las Olimpiadas Chilenas de Informática. Además, hoy en día muchos con compañeros y compañeras de carrera tanto en la USM como en otras universidades, la verdad... es que no podríamos estar más orgullosos y motivados por seguir trabajando en esto.
+Han participado un total de 3292, a lo largo de estos 4, lo cual ha sido posible gracias a los 87 tutores que nos han apoyado, y que además del conocimiento entregado, tenemos un total de 13 estudiantes que clasificaron a las finales de las Olimpiadas Chilenas de Informática. Además, hoy en día muchos con compañeros y compañeras de carrera tanto en la USM como en otras universidades, la verdad... es que no podríamos estar más orgullosos y motivados por seguir trabajando en esto.
 
 ### Programación IWI-131
 
