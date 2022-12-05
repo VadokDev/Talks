@@ -1,4 +1,4 @@
-# Evaluando la Complejidad de una tarea en Python
+# 5 años de Pythonia- Una historia de anecdotas, aprendizajes y muchos pukamones
 
 Hola!, esta fue una de mis primeras charlas, por suerte está grabada. Aquí conversaré acerca de mi experiencia como ayudante en la Universidad Técnica Federico Santa María, y de como Python es un lenguaje de programación que lleva a las personas a hacer cosas increíbles.
 
