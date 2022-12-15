@@ -7,7 +7,11 @@ const Read = ({ MessageMolecule, messages, readMessagesHandler }) => {
   return (
     <Grid alignContent={'center'}>
       <Box textAlign='center'>
-        <Button variant='contained' onClick={readMessagesHandler}>
+        <Button
+          variant='contained'
+          onClick={readMessagesHandler}
+          sx={{ mb: 2 }}
+        >
           Leer Mensajes
         </Button>
       </Box>

@@ -1,10 +1,10 @@
 import ManageMessages from './layouts/ManageMessages';
 import Read from './organisms/Read';
 import Publish from './organisms/Publish';
-import { ThemeProvider, createTheme } from '@mui/material/styles';
-import CssBaseline from '@mui/material/CssBaseline';
 import { messageRepository } from './repositories';
 import { Container } from '@mui/system';
+import { ThemeProvider, createTheme } from '@mui/material/styles';
+import CssBaseline from '@mui/material/CssBaseline';
 
 const darkTheme = createTheme({
   palette: {
@@ -16,7 +16,7 @@ function App() {
   return (
     <ThemeProvider theme={darkTheme}>
       <CssBaseline />
-      <Container>
+      <Container sx={{ pt: 5 }}>
         <ManageMessages
           ReadOrganism={Read}
           PublishOrganism={Publish}
