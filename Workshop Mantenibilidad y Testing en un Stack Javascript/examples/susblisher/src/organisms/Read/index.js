@@ -17,8 +17,11 @@ const Read = ({ MessageMolecule, messages, readMessagesHandler }) => {
       </Box>
       <Grid item>
         <Stack spacing={2}>
-          {messages.map((message) => (
-            <MessageMolecule content={message.content} />
+          {messages.map((message, i) => (
+            <MessageMolecule
+              key={`published-message-${i}`}
+              content={message.content}
+            />
           ))}
         </Stack>
       </Grid>

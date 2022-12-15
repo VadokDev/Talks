@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testExecutions version="1">
+  <file path="C:\Users\evdto\Desktop\Desarrollo\talks\Workshop Mantenibilidad y Testing en un Stack Javascript\examples\susblisher-basic\src\App.test.js">
+    <testCase name="renders learn react link" duration="27"/>
+  </file>
+</testExecutions>

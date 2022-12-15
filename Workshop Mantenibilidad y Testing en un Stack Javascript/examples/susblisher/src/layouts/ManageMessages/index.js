@@ -17,7 +17,9 @@ const ManageMessages = ({
   const [messages, setMessages] = useState([]);
 
   const readMessages = () => {
-    messageRepository.getMessages().then((messages) => setMessages(messages));
+    messageRepository
+      .getMessages()
+      .then((newMessages) => setMessages(newMessages));
   };
 
   const sendMessage = (content) => {

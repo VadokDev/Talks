@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testExecutions version="1">
   <file path="C:\Users\evdto\Desktop\Desarrollo\talks\Workshop Mantenibilidad y Testing en un Stack Javascript\examples\susblisher\src\__tests__\unit\Molecules\Message\index.test.js">
-    <testCase name="Message molecule unit testing Should render a message with the given content" duration="45"/>
+    <testCase name="Message molecule unit testing Should render a message with the given content" duration="44"/>
   </file>
   <file path="C:\Users\evdto\Desktop\Desarrollo\talks\Workshop Mantenibilidad y Testing en un Stack Javascript\examples\susblisher\src\__tests__\functional\PublishMessage.test.js">
-    <testCase name="Should publish a message successfully" duration="611"/>
+    <testCase name="Should publish a message successfully" duration="252"/>
   </file>
 </testExecutions>

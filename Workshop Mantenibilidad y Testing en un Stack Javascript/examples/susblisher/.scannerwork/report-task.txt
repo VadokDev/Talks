@@ -1,6 +1,6 @@
-projectKey=susblisher-untyped
+projectKey=susblisher
 serverUrl=http://localhost:9000
 serverVersion=9.3.0.51899
-dashboardUrl=http://localhost:9000/dashboard?id=susblisher-untyped
-ceTaskId=AYUXkX7LIXa0BGt2Bafi
-ceTaskUrl=http://localhost:9000/api/ce/task?id=AYUXkX7LIXa0BGt2Bafi
+dashboardUrl=http://localhost:9000/dashboard?id=susblisher
+ceTaskId=AYUXqERtIXa0BGt2Bafy
+ceTaskUrl=http://localhost:9000/api/ce/task?id=AYUXqERtIXa0BGt2Bafy
