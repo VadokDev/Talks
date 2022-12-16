@@ -1,18 +1,20 @@
-# Workshop Mantenibilidad y Testing en un Stack Javascript
+# Workshop Mantenibilidad Stack Javascript
 
-Hola!, bienvenidos sean a este Workshop sobre mantenibilidad y testing sobre un stack de Javascript. El objetivo de esta charla es demostrar de forma práctica el cómo llevar a cabo un software mantenible, testeable y dentro de un entorno full stack de Javascript.
+Hola!, bienvenidos sean a este Workshop sobre mantenibilidad sobre un stack de Javascript. El objetivo de esta charla es demostrar de forma práctica el cómo llevar a cabo un software mantenible, testeable y dentro de un entorno full stack de Javascript.
 
 ## Mantenibilidad
 
-Pero antes de pasar a lo práctico, hablemos de mantenibilidad. La IEEE define la mantenibilidad de un software como:
+```
+"En software, añadir una pista de seis carriles a un puente ferroviario se considera mantenimiento, y sería especialmente bueno si se pudiera hacer sin interrumpir el tráfico"
+```
+
+Fuente: Paul Stachour and David Collier-Brown. 2009. You Don’t Know Jack About Software Maintenance: Long considered an afterthought, software maintenance is easiest and most effective when built into a system from the ground up. Queue 7, 9 (October 2009), 50–55. [https://doi.org/10.1145/1626135.1640399](https://doi.org/10.1145/1626135.1640399)
+
+La IEEE define la mantenibilidad de un software como:
 
 ```
 "La facilidad con la que un software o componente puede ser modificado para corregir fallas, mejorar su desempeño u otros atributos, o adaptarse a un entorno cambiante."
 ```
-
-"En software, añadir una pista de seis carriles a un puente ferroviario se considera mantenimiento, y sería especialmente bueno si se pudiera hacer sin interrumpir el tráfico"
-
-Fuente: Paul Stachour and David Collier-Brown. 2009. You Don’t Know Jack About Software Maintenance: Long considered an afterthought, software maintenance is easiest and most effective when built into a system from the ground up. Queue 7, 9 (October 2009), 50–55. https://doi.org/10.1145/1626135.1640399
 
 Esta mantenibilidad depende de muchos factores; en general, el software debe ser fácil de entender (esto es: cómo funciona, qué hace y por qué lo hace de esa manera y no de otra), fácil de encontrar qué se necesita cambiar, y fácil de ser modificable y de validar que esos cambios no añaden bugs.
 
@@ -44,6 +46,24 @@ Qué herramientas tenemos para mejorarlo?, principalmente forzar un estilo de pr
 Un dato curioso, es que existe evidencia empírica de que los lenguajes tipados benefician la mantenibilidad del software que los utiliza, facilitan el entendimiento de código no documentado y el arreglo de errores de tipos, sin embargo, cuando se trata de errores semánticos, se vuelve más complicado méramente porque en el desarrollo en lenguajes de tipado débil, quienes desarrollan se acostumbran a mirar diferentes archivos del sistema constantemente. No obstante, hoy en día existen distintas herramientas de análisis de código que permiten validar estos errores semánticos de manera automática, justamente gracias a que el lenguaje en que está el sistema es tipado
 
 Fuente: Hanenberg, S., Kleinschmager, S., Robbes, R. et al. An empirical study on the impact of static typing on software maintainability. Empir Software Eng 19, 1335–1382 (2014). https://doi.org/10.1007/s10664-013-9289-1
+
+Una de las méjores métricas que tenemos para analizar la analizabilidad es la Complejidad Ciclomática.
+
+### Complejidad Ciclomática
+
+La complejidad ciclomática es una métrica que define el número de posibles caminos de ejecución dentro de un bloque de código, mientras más alto es este valor, mayor cantidad de ramificaciones tendrá nuestro código, y por lo tanto, será mucho más complejo de analizar.
+
+Para calcular la complejidad ciclomática de nuestro código, necesitamos visualizar el grafo de ejecución. Cada línea de código es un nodo del grafo, y de cada nodo saldrá una arista al nodo inmediatamente siguiente según la línea de ejecución, es decir, si un nodo es una condición, entonces podría salir una arista desde ese nodo hacia la primera línea de código dentro de la condición en caso de que se cumpla, o bien, hacia la primera línea de código fuera de la condición en caso contrario. El valor de la complejidad ciclomática será el número de aristas menos el número de nodos más el doble de la cantidad de componentes conexas. 
+
+E = Aristas
+N = nodos
+P = número de componentes conexas
+
+CC = E - N + 2P
+
+Ejemplos de complejidad ciclomática:
+
+[ejemplos]
 
 ### Modificalidad (Modifiability)
 
@@ -85,6 +105,12 @@ Grado de efectividad con la que podemos establecer criterios de prueba para un s
 
 La testeabilidad tiene 2 aspectos claves, qué tan fácil es definir lo que vamos a probar, y la capacidad que tenemos como equipo para crear y ejecutar aquellas pruebas. Podemos resolver el primer aspecto mediante un buen trabajo con los roles correspondientes, para llegar a una definición concreta de los casos de uso a validar, mientras que para el segundo aspecto, en Javascript contamos con diversas herramientas que facilitan la automatización de pruebas. Para el caso de este workshop, nuestra herramienta designada será Jest, y lo que vamos a validar es la creación de testing unitario y testing funcional en base al caso de uso de nuestra aplicación
 
+Mientras más partes de nuestro código cubramos con sus respectivas pruebas, podremos implementar cambios y mejoras con mucha más confianza ya que ante cualquier problema que generemos, los tests serán nuestra primera herramienta para detectarlos.
+
+## Resumen
+
+Fuente: Tupeli, Pauli (2020). Ensuring maintainability of JavaScript web applications. https://trepo.tuni.fi/handle/10024/123717
+
 ## Puesta en Práctica
 
 Para este Workshop, trabajaremos con una aplicación muy básica con 2 casos de uso: 
@@ -110,14 +136,12 @@ Herramientas de Mantenibilidad:
 * Prettier
 * SonarQube
 
-### Tipos de Testing
+## Mostrar la aplicación funcionando, cargar mensajes y leerlos
 
-### Consejos para Testing
+## Pasos para el workshop
 
-### Testear antes o testear después
-
-## Práctica
-
+* Mostrar el scaffold inicial, Create React App sin typescript
+* 
 * Definir el inicio de la aplicación
 * Definir el repositorio
 * Definir el cliente

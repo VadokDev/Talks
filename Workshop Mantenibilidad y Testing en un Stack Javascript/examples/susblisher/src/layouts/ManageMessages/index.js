@@ -6,7 +6,7 @@ import logo from '../../logo.png';
 const availableMessages = [
   { content: 'Workshop' },
   { content: 'Walmart' },
-  { content: 'Este es el Lugar' },
+  { content: 'Este es el lugar' },
 ];
 
 const ManageMessages = ({
