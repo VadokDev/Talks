@@ -140,24 +140,8 @@ Herramientas de Mantenibilidad:
 
 ## Pasos para el workshop
 
-* Mostrar el scaffold inicial, Create React App sin typescript
+* Mostrar la versión básica del proyecto
+* Analizar algunas de las fallas y métricas
 * 
-* Definir el inicio de la aplicación
-* Definir el repositorio
-* Definir el cliente
-* Definir el caso de uso de escritura
-* Definir el controlador
-* Definir el caso de uso de lectura
-* Definir el bootstrap
-* Realizar un test unitario
-* Realizar un test de integración
-* Realizar un test funcional
-* Instalar materialUi
-* Instalar Axios
-* Crear un componente de escritura
-* Crear un componente de lectura (tabla)
-* Crear un botón de lectura
-* Crear un componente Layout de App
-* Realizar un test unitario
-* Realizar un test de integración
-* Realizar un test funcional
+
+## Conclusiones
