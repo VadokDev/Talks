@@ -15,12 +15,6 @@ const darkTheme = createTheme({
   },
 });
 
-const availableMessages = [
-  { content: 'Workshop' },
-  { content: 'Walmart' },
-  { content: 'Este es el lugar' },
-];
-
 function App() {
   const [messages, setMessages] = useState([]);
 
@@ -48,14 +42,24 @@ function App() {
           <Grid container spacing={2}>
             <Grid item xs={6}>
               <Stack spacing={2}>
-                {availableMessages.map((message) => (
-                  <Button
-                    onClick={() => sendMessage(message.content)}
-                    variant='outlined'
-                  >
-                    {message.content}
-                  </Button>
-                ))}
+                <Button
+                  onClick={() => sendMessage('Workshop')}
+                  variant='outlined'
+                >
+                  Workshop
+                </Button>
+                <Button
+                  onClick={() => sendMessage('Walmart')}
+                  variant='outlined'
+                >
+                  Walmart
+                </Button>
+                <Button
+                  onClick={() => sendMessage('Este es el lugar')}
+                  variant='outlined'
+                >
+                  Este es el lugar
+                </Button>
               </Stack>
             </Grid>
             <Grid item xs={6}>
