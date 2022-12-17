@@ -27,6 +27,14 @@
       "react-app/jest"
     ]
   },
+  "jest": {
+    "testMatch": [
+      "**/src/**/*.test.js"
+    ],
+    "transformIgnorePatterns": [
+      "node_modules/(?!@codemirror)/"
+    ]
+  },
   "browserslist": {
     "production": [
       ">0.2%",

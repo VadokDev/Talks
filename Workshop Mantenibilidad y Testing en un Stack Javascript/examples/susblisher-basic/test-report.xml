@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testExecutions version="1">
-  <file path="C:\Users\evdto\Desktop\Desarrollo\talks\Workshop Mantenibilidad y Testing en un Stack Javascript\examples\susblisher-basic\src\App.test.js">
-    <testCase name="renders learn react link" duration="27"/>
+  <file path="C:\Users\evdto\Desktop\Desarrollo\talks\Workshop Mantenibilidad y Testing en un Stack Javascript\examples\susblisher-basic\src\__tests__\unit\App.test.js">
+    <testCase name="App unit testing suite Should render the list of messages" duration="91"/>
   </file>
 </testExecutions>
