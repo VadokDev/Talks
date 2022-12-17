@@ -142,6 +142,16 @@ Herramientas de Mantenibilidad:
 
 * Mostrar la versión básica del proyecto
 * Analizar algunas de las fallas y métricas
+* Experimento 1: Añadir más botones, mostrar que la complejidad ciclomática sube, y que el código se vuelve menos manipulable
+* Discusión: En teoría, cada botón tiene una función distinta... verdad ?, cada una de estas añade componentes al cálculo de la complejidad ciclomática.
+* Realizar un test, mostrar lo que falta por validar.
+* Discusión: se considera realmente unitario validar todo este componente?
+* Discusión: ¿Es este componente modularizable?, ¿Puede reutilizarse?
+* Discusión: ¿Qué pasaría si ahora tuviésemos que añadir autentificación a las llamadas de nuestra API?
+* Separemos la capa de persistencia y lectura de la capa de presentación
+* Crear un repositorio, mover al repositorio las funciones
+* Discusión: Cada parte de la aplicación deberia tener su propia instancia del repositorio?
+* 
 * 
 
 ## Conclusiones
