@@ -2,5 +2,5 @@ projectKey=susblisher
 serverUrl=http://localhost:9000
 serverVersion=9.3.0.51899
 dashboardUrl=http://localhost:9000/dashboard?id=susblisher
-ceTaskId=AYUYaVIHIXa0BGt2BagA
-ceTaskUrl=http://localhost:9000/api/ce/task?id=AYUYaVIHIXa0BGt2BagA
+ceTaskId=AYUtRf1orbgiXASQVjx7
+ceTaskUrl=http://localhost:9000/api/ce/task?id=AYUtRf1orbgiXASQVjx7
