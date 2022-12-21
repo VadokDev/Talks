@@ -190,6 +190,20 @@ La propiedad onClickHandler nos permite indicar qué hará éste botón cuando e
 
 ## Publish Organism
 
-Ahora que tenemos nuestra molécula de mensaje, vamos a generar una 
+Ahora que tenemos nuestra molécula de mensaje, vamos a generar nuestro primer organismo, éste será el Publish organism que vimos anteriormente en el diagrama. Vamos a utilizar el Stack de Material UI, para apilar nuestras moléculas de mensajes hacia abajo. Entendiendo esto, desmenucemos las propiedades de este componente.
+
+### Propiedad messages
+
+La propiedad mensajes contiene un arreglo con los mensajes que se van a renderizar para publicar, éstos contienen sólamente la propiedad contenido, pero a futuro podrían tener más cosas. 
+
+### Propiedad sendMessageHandler
+
+El organismo va a recibir por propiedades la función encargada de enviar los mensajes a la API, de modo tal de no acoplar esta lógica al organismo, si no dejarlo en un componente de más alto nivel.
+
+Para renderizar los mensajes, se iterará sobre esta lista y se mostrará una molécula de mensaje por cada uno de ellos, entregando sus propiedades correspondientes, en el onClickHandler será una función que ejecutará el sendMessageHandler y el contenido a mostrar, será el contenido del mensaje en el que se está iterando.
+
+### 
 
 ## Conclusiones
+
+Existen muchas maneras de hacer software mantenible, la que se expresa en este workshop es una de ellas y como siempre, todo tiene sus pros y contras, hay cosas que les van a generar ruido, y seguramente habrán partes que les hará más sentido hacer las de una forma por sobre otra, por lo mismo, es importante que más allá de encontrar la Bala de Plata, nos preocupemos de integrar la mantenibilidad en nuestro día a día, e implementemos formas de medirla, en nuestros pipelines de despliegue, en nuestra metodología de desarrollo, en todo. Para así, ser siempre consientes de que estamos creando un producto que a futuro será manejado por otras personas y que seguirá creciendo. Ahora es cuando tenemos que tomar una manera de trabajar que a futuro no nos haga arrepentirnos de la forma en la que decidimos maniobrar la mantenibilidad de nuestro software.
