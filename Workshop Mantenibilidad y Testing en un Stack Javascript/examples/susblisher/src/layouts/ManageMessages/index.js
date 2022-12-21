@@ -1,7 +1,8 @@
 import Grid from '@mui/material/Grid';
 import { useState } from 'react';
-import Message from '../../molecules/Message';
 import logo from '../../logo.png';
+import PublishOrganism from '../../organisms/Publish';
+import ReadOrganism from '../../organisms/Read';
 
 const availableMessages = [
   { content: 'Workshop' },
@@ -9,11 +10,7 @@ const availableMessages = [
   { content: 'Este es el lugar' },
 ];
 
-const ManageMessages = ({
-  PublishOrganism,
-  ReadOrganism,
-  messageRepository,
-}) => {
+const ManageMessages = ({ messageRepository }) => {
   const [messages, setMessages] = useState([]);
 
   const readMessages = () => {
@@ -34,14 +31,12 @@ const ManageMessages = ({
       <Grid container spacing={2}>
         <Grid item xs={6}>
           <PublishOrganism
-            MessageMolecule={Message}
             messages={availableMessages}
             sendMessageHandler={sendMessage}
           />
         </Grid>
         <Grid item xs={6}>
           <ReadOrganism
-            MessageMolecule={Message}
             messages={messages}
             readMessagesHandler={readMessages}
           />

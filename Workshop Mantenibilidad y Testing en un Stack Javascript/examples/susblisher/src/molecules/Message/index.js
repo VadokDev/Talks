@@ -1,5 +1,6 @@
 import Button from '@mui/material/Button';
-const Message = ({ content, onClickHandler }) => {
+
+const MessageMolecule = ({ content, onClickHandler }) => {
   return (
     <Button onClick={onClickHandler} variant='outlined'>
       {content}
@@ -7,4 +8,4 @@ const Message = ({ content, onClickHandler }) => {
   );
 };
 
-export default Message;
+export default MessageMolecule;

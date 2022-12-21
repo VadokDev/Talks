@@ -1,6 +1,4 @@
 import ManageMessages from './layouts/ManageMessages';
-import Read from './organisms/Read';
-import Publish from './organisms/Publish';
 import { messageRepository } from './repositories';
 import { Container } from '@mui/system';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
@@ -17,11 +15,7 @@ function App() {
     <ThemeProvider theme={darkTheme}>
       <CssBaseline />
       <Container sx={{ pt: 5 }}>
-        <ManageMessages
-          ReadOrganism={Read}
-          PublishOrganism={Publish}
-          messageRepository={messageRepository}
-        ></ManageMessages>
+        <ManageMessages messageRepository={messageRepository}></ManageMessages>
       </Container>
     </ThemeProvider>
   );

@@ -2,8 +2,9 @@ import Stack from '@mui/material/Stack';
 import Button from '@mui/material/Button';
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
+import MessageMolecule from '../../molecules/Message';
 
-const Read = ({ MessageMolecule, messages, readMessagesHandler }) => {
+const ReadOrganism = ({ messages, readMessagesHandler }) => {
   return (
     <Grid alignContent={'center'}>
       <Box textAlign='center'>
@@ -29,4 +30,4 @@ const Read = ({ MessageMolecule, messages, readMessagesHandler }) => {
   );
 };
 
-export default Read;
+export default ReadOrganism;

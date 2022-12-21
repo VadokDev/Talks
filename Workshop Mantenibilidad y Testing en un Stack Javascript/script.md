@@ -49,22 +49,6 @@ Fuente: Hanenberg, S., Kleinschmager, S., Robbes, R. et al. An empirical study o
 
 Una de las méjores métricas que tenemos para analizar la analizabilidad es la Complejidad Ciclomática.
 
-### Complejidad Ciclomática
-
-La complejidad ciclomática es una métrica que define el número de posibles caminos de ejecución dentro de un bloque de código, mientras más alto es este valor, mayor cantidad de ramificaciones tendrá nuestro código, y por lo tanto, será mucho más complejo de analizar.
-
-Para calcular la complejidad ciclomática de nuestro código, necesitamos visualizar el grafo de ejecución. Cada línea de código es un nodo del grafo, y de cada nodo saldrá una arista al nodo inmediatamente siguiente según la línea de ejecución, es decir, si un nodo es una condición, entonces podría salir una arista desde ese nodo hacia la primera línea de código dentro de la condición en caso de que se cumpla, o bien, hacia la primera línea de código fuera de la condición en caso contrario. El valor de la complejidad ciclomática será el número de aristas menos el número de nodos más el doble de la cantidad de componentes conexas. 
-
-E = Aristas
-N = nodos
-P = número de componentes conexas
-
-CC = E - N + 2P
-
-Ejemplos de complejidad ciclomática:
-
-[ejemplos]
-
 ### Modificalidad (Modifiability)
 
 Grado con el cual se puede efectivamente modificar un sistema sin introducir defectos o degradar su calidad.
@@ -106,6 +90,22 @@ Grado de efectividad con la que podemos establecer criterios de prueba para un s
 La testeabilidad tiene 2 aspectos claves, qué tan fácil es definir lo que vamos a probar, y la capacidad que tenemos como equipo para crear y ejecutar aquellas pruebas. Podemos resolver el primer aspecto mediante un buen trabajo con los roles correspondientes, para llegar a una definición concreta de los casos de uso a validar, mientras que para el segundo aspecto, en Javascript contamos con diversas herramientas que facilitan la automatización de pruebas. Para el caso de este workshop, nuestra herramienta designada será Jest, y lo que vamos a validar es la creación de testing unitario y testing funcional en base al caso de uso de nuestra aplicación
 
 Mientras más partes de nuestro código cubramos con sus respectivas pruebas, podremos implementar cambios y mejoras con mucha más confianza ya que ante cualquier problema que generemos, los tests serán nuestra primera herramienta para detectarlos.
+
+### Complejidad Ciclomática
+
+La complejidad ciclomática es una métrica que define el número de posibles caminos de ejecución dentro de un bloque de código, mientras más alto es este valor, mayor cantidad de ramificaciones tendrá nuestro código, y por lo tanto, será mucho más complejo de analizar.
+
+Para calcular la complejidad ciclomática de nuestro código, necesitamos visualizar el grafo de ejecución. Cada línea de código es un nodo del grafo, y de cada nodo saldrá una arista al nodo inmediatamente siguiente según la línea de ejecución, es decir, si un nodo es una condición, entonces podría salir una arista desde ese nodo hacia la primera línea de código dentro de la condición en caso de que se cumpla, o bien, hacia la primera línea de código fuera de la condición en caso contrario. El valor de la complejidad ciclomática será el número de aristas menos el número de nodos más el doble de la cantidad de componentes conexas. 
+
+E = Aristas
+N = nodos
+P = número de componentes conexas
+
+CC = E - N + 2P
+
+Ejemplos de complejidad ciclomática:
+
+[ejemplos]
 
 ## Resumen
 
@@ -151,7 +151,45 @@ Herramientas de Mantenibilidad:
 * Separemos la capa de persistencia y lectura de la capa de presentación
 * Crear un repositorio, mover al repositorio las funciones
 * Discusión: Cada parte de la aplicación deberia tener su propia instancia del repositorio?
-* 
-* 
+
+## Explicación parte no práctica
+
+Vamos a continuar mejorando la mantenibilidad de esta aplicación, sin embargo, en honor al tiempo utilizaremos la presentación en vez de programación en vivo.
+
+Una de las cosas que podemos haxcer para mejorar la mantenibilidad de esta aplicación, es aplicar algún sistema con el cual poder separar los componentes del mismo. Para este caso, voy a tomar inspiración de lo que sería el Diseño Atómico, no lo vamos a aplicar al pie de la letra, pero sí vamos a repasar un poco como funciona, y las ventajas que podemos obtener tanto de aplicarlo, como de aplicar otros sistemas para separar los componentes de nuestra aplicación.
+
+## Diseño Atómico
+
+El diseño atómico es un sistema de diseño que nos permite organizar nuestros nuestros componentes. Estos se separan en:
+
+* Átomos: La unidad de construcción básica de componentes, pueden ser inputs, textos, colores, etc.
+* Moléculas: Cuando combinamos átomos, generamos componentes más grandes los cuales son llamados moléculas. Éstas agrupan átomos para volverse unidades funcionales, es decir, se vuelven mucho más tangibles y funcionales de cara a nuestra interfaz. Por ejemplo, una imagen con texto y fondo generan una caja de información, mucho más útil que los 3 por separados.
+* Organismos: Teniendo moléculas, ya podemos construir secciones más complejas de nuestra interfaz, como lo sería una lista de contactos. Un organismo es entonces un grupo de moléculas unidas para formar un componente más complejo.
+* Plantillas: Las plantillas agrupan organismos al mismo tiempo que les dan contexto dentro de nuestra interfaz, nos permiten posicionar todo para que tenga un sentido, y darnos el paso final para generar el componente más grande de este sistema. Una plantilla será le organización final con la cual presentar al cliente la idea de diseño.
+* Paginas: Una pagina es una instancia de una plantilla, es decir, dejamos de hablar de cómo posicionaríamos los elementos, y generamos vistas concretas con la información e imágenes correspondientes que suponíamos colocar a medida que generábamos plantillas. Nuestra pagina será finalmente lo que el usuario de nuestra aplicación verá.
+
+Veamos cómo resultaría aplicarlo en nuestra aplicación. Para ello, observemos el siguiente diagrama: Como podrán notar, tenemos moléculas de mensajes, que vendrían siendo los botones que presionamos cuando queremos publicar algo. Estrictamente hablando, un botón podría ser méramente un átomo, pero para no entrar en complicaciones, lo veo como molécula porque a futuro podría componerse de más cosas, como dije antes, vamos a inspirarnos en diseño atómico, pero no a seguirlo al pié de la letra.
+
+Ésta molécula, si la colocamos por cada mensaje de los que tenemos disponibles para publicar, generamos un organismo el cual llamaremos Publish Organism. Éste entonces será una mitad de nuestra interfaz, y se encargará méramente de agrupar nuestras moléculas de mensajes a publicar.
+
+Por el otro lado, tenemos nuestra molécula Read Button, la cual es el botón con el cual llamamos a la API de manera manual, y obtenemos los mensajes. Ésta formará parte del organismo Read Organism, el cual a su vez, tendrá también moléculas de los mensajes que estemos leyendo, es decir, se compondrá de las moléculas Read Button y Message Molecule, ya que en este caso, éstas moléculas las vamos a reutilizar de modo tal de que en el organismo de Publicación, llamen a la API, y en el organismo de lectura, no hagan nada.
+
+## Message Molecule
+
+Lo primero que vamos a crear es una molécula de mensaje, estrictamente hablando, un botón podría ser méramente un átomo, pero para no entrar en complicaciones, lo veo como molécula porque a futuro podría componerse de más cosas, como dije antes, vamos a inspirarnos en diseño atómico, pero no a seguirlo al pié de la letra.
+
+Este componente recibirá 2 propiedades, recordar que si bien estamos utilizando React, esta forma de asignar propiedades a un componente no es estrictamente de React, si no que pueden verla como una asignación genérica de atributos a sus componentes, independiente de si están utilizando algún framework para gestionar su renderizado.
+
+### Propiedad Content
+
+La propiedad content de este componente nos permite indicar qué texto mostrará el botón
+
+### Propiedad onClickHandler
+
+La propiedad onClickHandler nos permite indicar qué hará éste botón cuando es presionado, notar que si la omitimos, el botón no hará nada en cuanto se le haga clic, y por lo tanto, podemos reutilizar este componente tanto para los mensajes a publicar, como los mensajes recibidos.
+
+## Publish Organism
+
+Ahora que tenemos nuestra molécula de mensaje, vamos a generar una 
 
 ## Conclusiones

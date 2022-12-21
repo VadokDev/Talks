@@ -1,6 +1,7 @@
 import Stack from '@mui/material/Stack';
+import MessageMolecule from '../../molecules/Message';
 
-const Publish = ({ MessageMolecule, messages, sendMessageHandler }) => {
+const PublishOrganism = ({ messages, sendMessageHandler }) => {
   return (
     <Stack spacing={2}>
       {messages.map((message, i) => (
@@ -14,4 +15,4 @@ const Publish = ({ MessageMolecule, messages, sendMessageHandler }) => {
   );
 };
 
-export default Publish;
+export default PublishOrganism;
