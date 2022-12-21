@@ -202,7 +202,55 @@ El organismo va a recibir por propiedades la función encargada de enviar los me
 
 Para renderizar los mensajes, se iterará sobre esta lista y se mostrará una molécula de mensaje por cada uno de ellos, entregando sus propiedades correspondientes, en el onClickHandler será una función que ejecutará el sendMessageHandler y el contenido a mostrar, será el contenido del mensaje en el que se está iterando.
 
-### 
+## Read Organism 
+
+Para nuestro organismo de lectura, tenemos el botón para leer los mensajes en caso de haber recargado la pagina, y tenemos nuestra lista de mensajes leídos. Entonces, lo que tenemos que hacer es agrupar tanto la molécula con la cual leeremos mensajes, como las moléculas de cada uno de los mensajes que hemos leído.
+
+### Propiedad messages
+
+Similar al otro organismo, messages será una lista de mensajes a renderizar como moléculas, sin embargo, en este caso serán los mensajes que hemos leído, y la molécula de mensajes se renderizará sin la propiedad onClickHandler, de modo tal que al hacer clic en ellas, no se gatille ninguna acción
+
+### Propiedad readMessagesHandler
+
+Al igual que el otro organismo de publicación, vamos a evitar acoplar la lógica de lectura de mensajes a este componente, dejándola como propiedad para que sea entregada por un componente de mayor nivel. Esta función se utilizará para que el botón de lectura de mensajes, llame a la API y cargue aquellos mensajes que no hemos leído por haber recargado la pagina.
+
+El resto es muy parecido al organismo anterior, si se fijan bien, la única diferencia es que hemos añadido otra molécula para poder leer mensajes.
+
+## ManageMessages Template
+
+Éste será el componente que va a gestionar la posición de los organismos de nuestra aplicación. Además, vamos a añadir en este template la lógica de manejo de datos de la aplicación. 
+
+### Propiedad messageRepository
+
+Su única propiedad será el messageRepository, el cual es una instancia del repositorio que creamos anteriormente, y que será entregada por App.js, que es el punto inicial de nuestra aplicación.
+
+### Estado messages
+
+messages es méramente un estado de react el cual tendrá la cuenta de los mensajes que hemos leído en nuestra aplicación, de manera tal que cuando se actualice, react gatille una nueva renderización del contenido de nuestro organismo de lectura.
+
+### availableMessages
+
+availabelMessages es el arreglo que creamos anteriormente, con el cual renderizaremos las opciones de mensajes para publicar.
+
+### readMessages 
+
+readMessages será la lógica de lectura de mensajes publicados, la cual se encargará de poder llamar a la API, y con los datos obtenidos, actualizar el estado de la aplicación. La gracia de hacer esta función, es que podemos encapsular la lógica para modificar el estado de este componente, y pasarla como propiedad a los componentes hijos, en este caso, al botón de leer mensajes del organismo de lectura.
+
+### sendMessage
+
+sendMessages encapsulará la lógica de publicación de mensajes, es decir, enviará un mensaje a la API, y luego consultará por todos los mensajes que están en ella, de modo tal de actualizar inmediatamente el estado de la aplicación. También pasaremos mediante propiedades esta función a componentes hijos, en particular, al organismo de publicación para que éste lo utilice con las moléculas de mensajes.
+
+### Renderización
+
+Para organizar nuestros organismos, hacemos uso de la grilla de Material UI, con la cual podemos fácilmente determinar cuanto espacio utilizar en columnas para nuestro organismo de publicación, y para nuestro organismo de lectura. Además colocaremos por sobre todo el logo de Walmart.
+
+Este tempolate será el encargado de traspasar las más importantes funciones y datos al resto de componentes, aquí entra en discusión qué tanto ahondamos en ir pasando propiedades hacia componentes inferiores, pero como utilizamos una manera de organizarlos, tal que nunca sean más de 3 niveles de traspaso de propiedades, todavía es algo fácil de manejar. Sin embargo, como siempre, lo más importante es revisar qué es lo más factible para su equipo y el producto que están desarrollando. No hay balas de plata y la respuesta siempre dependerá de la situación individual en la que se encuentren.
+
+## App.js
+
+App.js seguirá siendo el punto inicial de la aplicación, pero ahora sólo tendrá la lógica para el tema principal de Material UI, y tendrá acoplado el repositorio de mensajes. Ahora que está todo mucho más separado, revisemos un poco la parte de testing.
+
+## Testing
 
 ## Conclusiones
 
