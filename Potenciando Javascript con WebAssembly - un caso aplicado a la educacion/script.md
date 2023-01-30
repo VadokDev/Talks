@@ -142,7 +142,11 @@ Aquí es donde entran en juego los héroes de mi tesis
 
 ### WebAssembly
 
-WebAssembly es un formato de instrucciones binarias creado con el fin de ser ejecutado en una máquina virtual, es decir, podemos ejecutarlo en cualquier dispositivo capaz de correr esta máquina virtual, lo que nos permite ejecutar código de muy bajo nivel en nuestros navegadores.
+WebAssembly es un formato de instrucciones binarias creado con el fin de ser ejecutado en una máquina virtual, es decir, podemos ejecutarlo en cualquier dispositivo capaz de correr esta máquina virtual, lo que nos permite ejecutar código de muy bajo nivel en nuestros navegadores, y complementar así nuestras aplicaciones en JS.
+
+En el sitio web madewithwebassembly.com, podemos ver algunos de los proyectos potenciados por esta tecnología, entre ellos, se encuentra lichess, uno de los sitios de ajedrez online más conocidos, y que cuyo motor de análisis de juego está basado en un port a WebAssembly del motor Stockfish.
+
+[imagen lichess]
 
 Sin embargo, el objetivo final de WebAssembly no es que comencemos a desarrollar en un lenguaje como ensamblador nuestras aplicaciones, si no más bien, brindarnos la posibilidad de utilizar otros lenguajes de programación en ellas, gracias a su capacidad de ejecutar código de muy bajo nivel, veamos esto a grandes rasgos.
 
@@ -163,11 +167,38 @@ https://developer.mozilla.org/en-US/docs/WebAssembly/C_to_wasm
 
 Pero esto no se detiene aquí, volviendo al primer problema, la librería multimetric sólo puede ejecutarse en Python, aquí es donde retomamos la idea de que WebAssembly busca complementar nuestras aplicaciones con programas en otros lenguajes, y encuentro Pyodide.
 
-* Implementación
+Pyodide es un port de CPython a WebAssembly, es decir, con sólo instalar esta librería en nuestro proyecto javascript, podemos correr código Python casi de manera nativa, sin tener pérdidas de desempeño considerables, y abriendo todo un ecosistema de cosas que podemos añadir a nuestra aplicación.
+
+[Imagen Pyodide]
+
+Y no sólo se detiene allí, si no que también trae consigo miropip, un gestor de paquetes de Python pensado para ser utiizado en la web, con esto el rompecabezas se empieza a hacer cada vez más claro.
+
+Ya tenemos una forma de ejecutar Python en nuestra aplicación JS, y una manera de instalar paquetes de Python, ahora sólo falta unir todo!
+
+### Implementación
+
+Una vez cargado Pyodide en nuestra aplicación, lo que sigue es utilizar micropip para poder cargar multimetric, y así poder calcular las métricas de Halstead de un código desde nuestro navegador.
+
+[Parte técnica, código]
 
 ## Conclusiones
 
-* Ventajas y desventajas de hacer una aplicación autocontenida
-* Descubrimientos interesantes 
-* Mantención
- 
+Llegados a este punto, sólo nos queda notar algunos de los descubrimientos relevantes que he obtenido experimentando a lo largo de mi tesis, y que aún quedan muchos más por terminar, pese a que espero titularme pronto.
+
+### Descubrimientos interesantes
+
+Aquí hay algunas comparaciones entre las métricas de la solución que plantea un profesor, y el promedio de las soluciones que plantean los estudiantes, notar que en las soluciones de los estudiantes, no todos tienen nota perfecta, por lo que algunas tareas evaluadas pueden no resolver correctamente lo que se pide
+
+[Comparaciones]
+
+### Trabajo futuro
+
+Gracias a WebAssembly, podemos hacer que Ishvel funcione méramente con subirlo a github pages, sin depender de algún servidor de la universidad, del que a futuro no se sabe quién se hará cargo, además, podemos mantener fácilmente el código actualizado en caso de que otras personas quieran aportar, y nos ahorramos costos en tener que pagar algún servidor personal para almacenar una aplicación que ahora es sólo un minificado de archivos.
+
+Este es un pequeño ejemplo de las cosas que WebAssembly puede hacer, hay casos de uso mucho más elaborados para la educación, que hacen uso de aceleración gráfica para cosas más visuales, o de cálculos más complejos para materias sobre física u otros.
+
+A futuro, quisiera aprovechar esta capacidad de WebAssembly para brindar a profesores y estudiantes, un entorno común de desarrollo en Python, desde sus navegadores web y que no dependa de servicios externos como es repl.it, así podemos disminuir los tiempos de carga y de indisponibilidad, otorgando a estudiantes una manera directa de entrar a programar, sin tener que pasar por todo lo que implica la configuracion de un entorno de desarrollo en sus computadores. 
+
+Además, a medida que los semestres pasan y obtenemos más información respecto a las tareas, poder proponer valores generales para las métricas de Halstead, que nos permitan determinar experimentalmente qué niveles de esfuerzo, volumen, complejidad ciclomática, etc. son adecuados para una tarea de programación en sus distintos niveles y recursos.
+
+Muchas gracias por su atención
