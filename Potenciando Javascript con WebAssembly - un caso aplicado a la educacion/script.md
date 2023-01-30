@@ -96,7 +96,8 @@ while (el código no está listo) {
 }
 
 ```
-Ahora bien, concentrémonos en las 2 funciones que tenemos aquí, dado que buscarOperador y buscarOperando no hacen más que buscar, en su respectivo conjunto, el elemento que necesitamos poner en nuestro código. 
+
+Ahora bien, concentrémonos en las 2 funciones que tenemos aquí, dado que buscarOperador y buscarOperando no hacen más que buscar, en su respectivo conjunto, el elemento que necesitamos poner en nuestro código.
 
 [imagen de búsqueda de elementos]
 
@@ -114,7 +115,7 @@ Y es que esta forma de ver el software es increíble, porque con datos como esto
 
 Estas y muchas otras métricas más, pueden encontrarlas en el libro Elements of Software Science, ahora bien, cual es la utilidad de todo esto ?
 
-## Aplicación de estas métricas 
+## Aplicación de estas métricas
 
 Maurice Halstead planteó varias métricas de este estilo, pues su objetivo era definir el software como una ciencia, en base a fórmulas fundamentales, las cuales nos permitirían entender y predecir el comportamiento de cualquier programa, así como con la física podemos entender y precedir aspectos de la naturaleza misma.
 
@@ -133,12 +134,35 @@ Sin embargo, el desarrollo de esta plataforma no estuvo excemto de complicacione
 1. La biblioteca que ya implementa el cálculo de métricas de Halstead para Python, está pues... escrita en Python
 2. Es difícil mantener un proyecto universitario en línea cuando nadie le da soporte, por lo tanto había que encontrar una forma de hacer distribuir la aplicación dependiendo lo menos posible de servidores externos.
 
+Entonces... cómo resolvemos esto?
+
 ## Solución Técnica
 
-Aquí es donde WebAssembly llega al rescate, WebAssembly es un lenguaje de bajo nivel, el cual nos permite correr 
+Aquí es donde entran en juego los héroes de mi tesis
 
-* WebAssembly
-* Pyodide
+### WebAssembly
+
+WebAssembly es un formato de instrucciones binarias creado con el fin de ser ejecutado en una máquina virtual, es decir, podemos ejecutarlo en cualquier dispositivo capaz de correr esta máquina virtual, lo que nos permite ejecutar código de muy bajo nivel en nuestros navegadores.
+
+Sin embargo, el objetivo final de WebAssembly no es que comencemos a desarrollar en un lenguaje como ensamblador nuestras aplicaciones, si no más bien, brindarnos la posibilidad de utilizar otros lenguajes de programación en ellas, gracias a su capacidad de ejecutar código de muy bajo nivel, veamos esto a grandes rasgos.
+
+Originalmente, si quisiéramos ejecutar un programa de C++ en nuestros computadores, lo primero que debemos hacer es escribir el código 
+
+[Hola mundo en C++]
+
+Y luego, lo compilamos y obtenemos nuestro ejecutable, este ejecutable en realidad no es más que un conjunto de instrucciones en binario las cuales puede ejecutar nuestro computador, las cuales son determinadas por el compilador a medida que lee nuestro código.
+
+Pero... qué tal si hacemos un compilador a nuestra pinta?, y en vez de utilizar el formato de instrucciones que tiene el compilador de C++, utilizamos el formato de WebAssembly?
+
+Aquí es donde podemos ver una de las mayores gracias de WebAseembly, y que gracias a su capacidad de ejecutar código de bajo nivel, podemos utilizar un compilador que lleve nuestro código de C++ (o de cualquier otro lenguaje!) a un set de instrucciones que WebAssembly pueda ejecutar, como lo es por ejemplo, emscripten. Aquí podemos ver un ejemplo directo del sitio web de Mozilla Developers Network
+
+[Ejemplo gráfico]
+https://developer.mozilla.org/en-US/docs/WebAssembly/C_to_wasm
+
+### Pyodide
+
+Pero esto no se detiene aquí, volviendo al primer problema, la librería multimetric sólo puede ejecutarse en Python, aquí es donde retomamos la idea de que WebAssembly busca complementar nuestras aplicaciones con programas en otros lenguajes, y encuentro Pyodide.
+
 * Implementación
 
 ## Conclusiones
