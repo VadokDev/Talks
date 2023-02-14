@@ -1,6 +1,6 @@
 # Potenciando Javascript con WebAssembly - Un Caso Aplicado a la Educación
 
-Hola!, me alegra que te pases por aquí, ésta charla es la continuación de mi charla anterior sobre Complejidad de tareas en pYTHON. Aquí comentaré acerca del trabajo de Maurice Halstead, y del potencial que éste tiene para ser aplicado en la evaluación de la complejidad, de tareas de programación. Además, explicaré la solución técnica llevada a cabo para su implementación, gracias al poder de Mulitmetrics y WebAssembly.
+Hola!, me alegra que te pases por aquí, ésta charla es la continuación de mi charla anterior sobre Complejidad de tareas en Python. Aquí comentaré acerca del trabajo de Maurice Halstead, y del potencial que éste tiene para ser aplicado en la evaluación de la complejidad, de tareas de programación. Además, explicaré la solución técnica llevada a cabo para su implementación, gracias al poder de Mulitmetrics y WebAssembly.
 
 ## Detalle
 
