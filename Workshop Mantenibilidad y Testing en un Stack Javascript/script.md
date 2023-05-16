@@ -244,13 +244,29 @@ sendMessages encapsulará la lógica de publicación de mensajes, es decir, envi
 
 Para organizar nuestros organismos, hacemos uso de la grilla de Material UI, con la cual podemos fácilmente determinar cuanto espacio utilizar en columnas para nuestro organismo de publicación, y para nuestro organismo de lectura. Además colocaremos por sobre todo el logo de Walmart.
 
-Este tempolate será el encargado de traspasar las más importantes funciones y datos al resto de componentes, aquí entra en discusión qué tanto ahondamos en ir pasando propiedades hacia componentes inferiores, pero como utilizamos una manera de organizarlos, tal que nunca sean más de 3 niveles de traspaso de propiedades, todavía es algo fácil de manejar. Sin embargo, como siempre, lo más importante es revisar qué es lo más factible para su equipo y el producto que están desarrollando. No hay balas de plata y la respuesta siempre dependerá de la situación individual en la que se encuentren.
+Este template será el encargado de traspasar las más importantes funciones y datos al resto de componentes, aquí entra en discusión qué tanto ahondamos en ir pasando propiedades hacia componentes inferiores, pero como utilizamos una manera de organizarlos, tal que nunca sean más de 3 niveles de traspaso de propiedades, todavía es algo fácil de manejar. Sin embargo, como siempre, lo más importante es revisar qué es lo más factible para su equipo y el producto que están desarrollando. No hay balas de plata y la respuesta siempre dependerá de la situación individual en la que se encuentren.
 
 ## App.js
 
 App.js seguirá siendo el punto inicial de la aplicación, pero ahora sólo tendrá la lógica para el tema principal de Material UI, y tendrá acoplado el repositorio de mensajes. Ahora que está todo mucho más separado, revisemos un poco la parte de testing.
 
-## Testing
+## Sonarqube resultante
+
+Luego de todo este trabajo, podemos observar que ya no tenemos un archivo con complejidad 10, si no varios archivos con pequeña complejidad, lo que significa que ya no hay archivos que concentren muchas bifurcaciones en su comportamiento, y que por ende todo nuestro código se separa en archivos fáciles de mantener y de testear.
+
+## Testing luego del refactor
+
+Recuerdan el test anterior?, necesitábamos cargar la aplicación completa, y sólo llegamos a validar 1 parte unitaria de toda la aplicación que sería méramente ver si renderiza o no algo. Ahora en cambio, tenemos muchas unidades más pequeñas de nuestra aplicación, lo que significa que podemos testearlas de manera unitaria mucho más fácilmente, tomemos por ejemplo la molécula de mensaje. 
+
+### Message Molecule Testing
+
+Ahora que tenemos una separación más concerta de nuestra aplicación, podemos definir fácilmente qué es lo que necesitamos testear. Para el caso de la molécula de mensajes, basta con validar que si le pasamos un texto, éste se renderice, y que si le hacemos click, se ejecute la función entregada.
+
+Para ello, tenemos la siguiente suite de tests, la cual utiliza Testing Library y jest con todo pre-configurado de la mano de Create React App.
+
+En un primer test entonces, utilizamos la herramienta de renderizado de la Testing Library, y luego validamos que en la pantalla se encuentre el texto que debería llevar el botón. Luego, en el segundo test, generamos una función mock de jest, la cual nos permite determinar si ha sido invocada durante nuestro test o no. Se la entregamos a nuestra molécula y una vez que renderizamos todo, buscamos el botón para gatillar un evento de click, éste evento de click gatillará la invocación de nuestra función mock, y como resultado, habremos validado que la molécula si invoca a esta función cuando se le hace click.
+
+Gracias a esta modularización, es mucho más fácil entonces definir nuestros tests unitarios, y saber cómo mantener la testeabilidad de nuestra aplicación pára así hacerla más mantenible.
 
 ## Conclusiones
 
