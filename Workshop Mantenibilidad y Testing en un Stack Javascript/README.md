@@ -1,4 +1,4 @@
-# Potenciando Javascript con WebAssembly - Un Caso Aplicado a la Educación
+# Workshop Mantenibilidad y Testing en un Stack Javascript
 
 Hoy en día, más que nunca, es común que un proyecto de software crezca y se complejice rápidamente y con ello vengan algunos problemas de escalabilidad, lo que desencadena en un desarrollo mucho más costoso.
 
