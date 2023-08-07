@@ -10,6 +10,25 @@ Durante el semestre, los estudiantes experimentarán diversas formas de aprender
 
 Las tareas forman parte importante del proceso de aprendizaje y enseñanza, ya que permiten medir el nivel de aprendizaje del estudiante, y a su vez, entregarle retroalimentación sobre el mismo. Debido a esto, es que las tareas de programación deben elaborarse de la mejor manera posible, centrándose en evaluar los contenidos de modo tal que el estudiante se motive a aprender, y evitando a toda costa generar efectos adversos en el mismo como puede ser la frustración por el nivel de dificultad, la falta de ganas de aprender por verle nula utilidad al contenido, y en el peor de los casos, la deserción por los motivos antes expuestos y otros factores.
 
+### Problemática
+
+Cuando una tarea no está bien elaborada, el estudiante se ve enfrentado a:
+
+* Pérdida del interés en aprender a programar, dejando de ver el ramo como una oportunidad de aprendizaje, y llevando una actitud donde sólo importa aprobar
+* Frustración a lo largo del ramo, al punto en que el estudiante puede decidir desertar del ramo y de la programación en general
+* Aumentar la probabilidades de realizar actos que falten a la honestidad académica para resolver la tarea
+* Complicar la elaboración de la rúbrica con la que la tarea será evaluada, lo que conlleva a una retroalimentación menos valiosa para el estudiante.
+
+Por lo mismo, se requiere de un marco de trabajo que facilite la elaboración de tareas, el cual brinde tanto una metodología como una herramienta para hacerlo y así apoyar a los profesores en esta labor.
+
+### Objetivos
+
+* Objetivo general: Desarrollar un framework para la elaboración de tareas en cursos introductorios de programación
+* Objetivos específicos:
+  * Identificar y definir criterios que puedan ser usados para evaluar una tarea
+  * Definir una métrica que permita evaluar una tarea de acuerdo al cumplimiento de criterios
+  * Definir una metodol.ogía para la elaboración de tareas utilizando el framework desarrollado
+
 ## Ishvel
 
 En este contexto es que se desarrolla el framework Ishvel, el cual consta de una metodología de elaboración de tareas y una herramienta para llevarla a cabo, la cual cuenta con métricas para hacer un análisis oportuno de la dificultad de la tarea en base a su solución, y las soluciones de tareas anteriores.
@@ -136,7 +155,7 @@ El editor de Ishvel también tiene una sección para revisar las métricas anter
 
 ## Experimentos
 
-A continuación se muestra la experimentación del framework utilizando las tareas del ramo IWI-131 del primer y segundo semestre del 2022
+Con el fin de validar el framework elaborado, se llevó a cabo la siguiente experimentación utilizando las tareas del ramo IWI-131 del primer y segundo semestre del 2022
 
 ### Cálculo de Métricas
 
@@ -158,7 +177,15 @@ Luego se calcula la diferencia porcentual entre las métricas de cada una de las
 
 [Ver Tabla en canva]
 
-De estos resultados, se determinaron los intervalos de dificultad aplicando la heurística antes planteada
+De estos resultados, se determinaron los intervalos de dificultad aplicando la heurística antes planteada.
+
+### Diferencia de Dificultad entre las Tareas del 1er y 2do semestre del 2022
+
+Luego de obtener la tabla de intervalos de dificultad comparativa, es aplican estos intervalos a las diferencias porcentuales antes calculadas, obteniendo los siguientes resultados por métrica para cada tarea:
+
+[Ver tabla en canva]
+
+Al comparar los resultados obtenidos por la metodología del framework con los resultados de la encuesta, se determina que la heurística aplicada coincide con la opinión de expertos en 3 pares de tareas, mientras que para el resto, los resultados no se alejan demasiado de los obtenidos por la encuesta.
 
 ### Elaboración de una Tarea con el Editor de Ishvel
 
@@ -211,7 +238,27 @@ Por otro lado, con respecto a la tarea del segundo semestre, se puede apreciar q
 
 ## Conclusiones
 
-Y ya a modo de conclusión, 
+El curso de Programación de la UTFSM está muy bien estructurado, sin embargo, hay muchas mejoras que se pueden llevar a cabo en sus tareas. Las recomendaciones entregadas por el framework Ishvel a la hora de elaborar una tarea, pueden ser de mucha utilidad para combatir la frustración que una tarea puede generar en los estudiantes.
+
+Por otro lado, la aplicación de métricas de software como herramienta de medición para la dificultad de una tarea, y para el estudio de la experiencia que tienen los estudiantes a la hora de desarrollar una tarae, fue de gran ayuda para entender ciertos aspectos en los que hay que prestar atención a la hora de elaborar una tarea, y cómo la solución de la misma entrega información importante a tener en cuenta durante este proceso.
+
+Este estudio muestra el potencial que tienen las métricas de software para conocer la dificultad de una tarea antes de publicarla a sus estudiantes, esta retroalimentación inmediata es súmamente útil para el profesor que está redactando una tarea. Sin embargo, se requiere una mayor cantidad de datos respecto a más semestres de tareas y el análisis de sus métricas, para poder extraer así mejores conclusiones. Además de las métricas de Halstead, la métrica de complejidad ciclomática entra una interesante aproximación sobre cómo se traduce el enunciado a una tarea a la cantidad de condiciones que el estudiante tendrá que desarrollar, y cómo éstas complicarán el proceso de desarrollo de su solución, impactando en otras métricas.
+
+El editor de Ishvel es una gran herramienta para aplicar la metodología del framework, entrega de antemano una tarea de ejemplo para acelerar el proceso de elaboración. Sin embargo, la información respecto a la dificultad que éste entrega, está limitado por la eficacia de la heurística utilizada para determinar los intervalos de dificultad comparativa, dado que ésta no ha sido afinada aún, se requiere de mayor trabajo en ella para lograr una mayor eficacia
+
+Del mismo modo, el uso de tecnologías web que permiten ejecutar Ishvel en cualquier navegador sin necesidad de un servidor externo, facilita la distribución del framework a gran escala, pues todo está alojado en Github Pages. Por lo mismo, el framework fue publicado como código abierto, para que cualquier profesor pueda utilizarlo y añadir las métricas de sus propias tareas, lo que hace del framework una herramienta mucho más versátil y aplicable a otros cursos.
+
+Por lo demás, en base a la validación y experimentación, es posible determinar que fue posible cumplir el objetivo general de esta memoria, creando un framework capaz de apoyar a los profesores en la elaboración de tareas de programación, utilizando una metodología y la definición de métricas que ayudan a entender la dificultad de una tarea en base a su solución. 
+
+## Trabajo a Futuro
+
+Como trabajo a futuro, es necesario determinar una mejor heurística para determinar los intervalos de dificultad comparativa, ya que la actual no está lo suficientemente afinada y requiere de mayor información. Del mismo modo, se deben analizar más tareas con las cuales obtener más métricas, y realizar la encuesta a grupos más grandes de expertos para ir afinando poco a poco las sugerencias del framework y los intervalos de dificultad comparativa. Con mayor información, es posible afinar mucho más la metodología del framework para el análisis de la dificultad de las tareas.
+
+También se puede llevar a cabo un análisis sobre la experiencia del usuario con respecto al editor, para así probar en un laboratorio y obtener datos sobre la experiencia de un profesor elaborando una tarea en él, de modo tal de corregir aspectos de la interfaz, ver qué otras opciones añadir, y hacer mejoras en la metodología. 
+
+También a futuro se puede disminuir la carga cognitiva entregada por las métricas del framework en la interfaz, reduciendo todo a una única métrica que resulte de la ponderación de las métricas ya analizadas en este trabajo, y  que entregue un valor final con el cual categorizar la tarea en cuestión. 
+
+Queda como trabajo a futuro también la experimentación de cómo distintos valores en las métricas de las soluciones impactan en la experiencia de los estudiantes a la hora de desarrollar sus tareas, mediante encuestas que permitan agrupar los valores de las métricas, ponderarlos y finalmente extraer una única métrica de evaluación para las tareas.
 
 ## Anexos
 
