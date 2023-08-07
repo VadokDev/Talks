@@ -59,18 +59,18 @@ Para esto se deben determinar los Intervalos de Comparación de Dificultad de ca
 
 Por ejemplo, sean los intervalos de comparación de difucultad:
 
-[Ver tabla en presentación de Canva]
+![image](https://github.com/VadokDev/Talks/assets/13860406/17c20158-bb1e-4346-9d81-970b8af4c52f)
 
 Y las diferencias porcentuales
 
-[Ver tabla en presentación de Canva]
+![image](https://github.com/VadokDev/Talks/assets/13860406/2bf2fbd6-95df-45dd-98cc-ecef3161acd3)
 
 Se puede determinar a qué intervalo pertenece la diferencia porcentual de cada una de las métricas obteniendo los siguientes valores
 
-* Complejidad Ciclomática: 3
-* Dificultad H: 4
-* Esfuerzo: 2
-* Volumen: 1
+* Complejidad Ciclomática: 3 - Similar
+* Dificultad H: 4 - Más difícil
+* Esfuerzo: 2 - Más fácil
+* Volumen: 1 - Mucho más fácil
 
 Por lo que según los Intervalos de Comparación de Dificultad del ejemplo, ambas tareas tendrían una dificultad similar, ahora bien, ¿Cómo se determinan los Intervalos de Comparación de Dificultad?
 
@@ -89,17 +89,13 @@ Teniendo esto, se debe llevar a cabo una encuesta al equipo de expertos, en la c
 * La segunda tarea es más difícil que la primera tarea
 * La segunda tarea es mucho más difícil que la primera tarea
 
-Una vez obtenidos los resultados, se determina la diferencia de dificultad entre las tareas utilizando el promedio de las respuestas para cada contenido según el ejemplo:
+Una vez obtenidos los resultados, se determina la diferencia de dificultad entre las tareas utilizando el promedio de las respuestas para cada contenido, luego se deben calcular las métricas de las tareas evaluadas por el equipo de expertos, para así calcular la diferencia porcentual entre las métricas de las tareas del mismo contenido, según el siguiente ejemplo:
 
-[Ver tabla en presentación de Canva]
-
-Luego se deben calcular las métricas de las tareas evaluadas por el equipo de expertos, y luego calcular la diferencia porcentual entre las métricas de las tareas del mismo contenido.
-
-[Ver tabla en presentación de Canva]
-
-Finalmente, se agrupan los resultados y se obtiene la siguiente tabla
+![image](https://github.com/VadokDev/Talks/assets/13860406/b2e2a083-be97-4f9a-8650-d800302cc159)
 
 Teniendo estos resultados, se deben determinar 5 intervalos de diferencias porcentuales por cada métrica, denotados como Límites Inferiores y Límites Superiores i y j, donde i corresponde al intervalo de comparación de dificultad, y j corresponde a la métrica evaluada.
+
+![image](https://github.com/VadokDev/Talks/assets/13860406/7301e79b-7921-4811-89ef-090cad2b340e)
 
 Para completar la tabla, se utiliza una heurística definida para este fin, la cual consta de los siguientes pasos:
 
@@ -107,12 +103,12 @@ Para completar la tabla, se utiliza una heurística definida para este fin, la c
 2. El límite superior del último intervalo de comparación de dificultad es inf%
 3. A partir del primer intervalo "mucho más fácil", se calcula el límite superior restante como el mínimo entre la máxima diferencia porcentual de esa dificultad comparativa, y la mínima diferencia porcentual de la dificultad comparativa siguiente, para el caso del ejemplo, es -37.50%
 
-[Ver Tabla en Canva]
+![image](https://github.com/VadokDev/Talks/assets/13860406/a2f27775-beae-4fa2-9d85-98209ecc95a9)
 
 4. El siguiente intervalo se calcula como el límite superior + 0.01%, resultando -37.49%
 5. Se repiten los pasos 3 y 4 para el resto de intervalos, obteniendo la siguiente tabla:
 
-[Ver Tabla en Canva]
+![image](https://github.com/VadokDev/Talks/assets/13860406/be05c0e3-6c68-4d97-aaab-41074f71f30d)
 
 Una vez que se cuenta con los intervalos de comparación de dificultad definidos, podemos utilizarlos para comparar 2 tareas en base a sus métricas según el ejemplo mostrado anteriormente. Esta información debe cargarse en el editor de Ishvel así como las métricas de las tareas calculadas editando los archivos de métricas del mismo.
 
@@ -151,7 +147,7 @@ Estos son los pasos para la elaboración de una tarea según el framework Ishvel
 
 El editor de Ishvel también tiene una sección para revisar las métricas anteriores, ésta permite, utilizando las configuraciones de la sección derecha del editor, revisar cómo han variado las métricas de las tareas a lo largo de los semestres según la información cargada en el editor.
 
-[Ver Métricas en Canva]
+![image](https://github.com/VadokDev/Talks/assets/13860406/6e5fe79d-4eb3-4857-a451-821afe65c2e5)
 
 ## Experimentos
 
@@ -165,25 +161,30 @@ Utilizando la herramienta *metrics-research* del framework, se calculó el prome
 
 Utilizando Google Forms, se consultó a un conjunto de expertos para que comparase la dificultad de las tareas del segundo semestre con las tareas del primero, obteniendo los siguientes resultados, donde 
 
+![image](https://github.com/VadokDev/Talks/assets/13860406/6feb7389-0302-43d3-be6a-30fe15f100e5)
+![image](https://github.com/VadokDev/Talks/assets/13860406/7c791ae2-19d2-46bd-b117-a6e49bd63731)
+
 * La tarea del segundo semestre es mucho más fácil que la tarea del primer semestre
 * La tarea del segundo semestre es más fácil que la tarea del primer semestre
 * La tarea del segundo semestre tiene una dificultad similar a la tarea del primer semestre
 * La tarea del segundo semestre es más difícil que la tarea del primer semestre
 * La tarea del segundo semestre es mucho más difícil que la tarea del primer semestre
 
-[Ver tabla en Canva]
+![image](https://github.com/VadokDev/Talks/assets/13860406/4d6366ef-6bfb-459b-98a5-19bafb4dd549)
 
 Luego se calcula la diferencia porcentual entre las métricas de cada una de las tareas, obteniendo los siguientes resultados:
 
-[Ver Tabla en canva]
+![image](https://github.com/VadokDev/Talks/assets/13860406/217fa40b-19a3-4ede-9174-52c10d373088)
 
 De estos resultados, se determinaron los intervalos de dificultad aplicando la heurística antes planteada.
+
+![image](https://github.com/VadokDev/Talks/assets/13860406/64b8acdb-c4ef-4c2d-9b4a-e1ececce8581)
 
 ### Diferencia de Dificultad entre las Tareas del 1er y 2do semestre del 2022
 
 Luego de obtener la tabla de intervalos de dificultad comparativa, es aplican estos intervalos a las diferencias porcentuales antes calculadas, obteniendo los siguientes resultados por métrica para cada tarea:
 
-[Ver tabla en canva]
+![image](https://github.com/VadokDev/Talks/assets/13860406/2ea6f7f5-d746-4f4e-a53f-9f751f833650)
 
 Al comparar los resultados obtenidos por la metodología del framework con los resultados de la encuesta, se determina que la heurística aplicada coincide con la opinión de expertos en 3 pares de tareas, mientras que para el resto, los resultados no se alejan demasiado de los obtenidos por la encuesta.
 
@@ -191,17 +192,21 @@ Al comparar los resultados obtenidos por la metodología del framework con los r
 
 Siguiendo la metodología y la plantilla ya indicada en el editor de Ishvel, se procedió a configurar el editor y redactar una tarea, indicando imágenes, fórmulas y completando el contexto, instrucciones, ejemplos y recomendaciones de la tarea, así como cualquier otro aspecto relevante para el estudiante
 
-[Ver imagen en Canva]
+![image](https://github.com/VadokDev/Talks/assets/13860406/b9730efe-232a-42c0-bad3-8cbd0ae38fb5)
 
 Luego se desarrolla el código que resuelve la tarea y se evalúa en base a la tarea de strings del 2022-2, observando las sugerencias y la dificultad comparativa. El editor indica que la tarea elaborada es mucho más fácil que la tarea de strings del 2022-2, y entrega sugerencias para poder abordar este resultado.
 
+![image](https://github.com/VadokDev/Talks/assets/13860406/f7d513f0-aae9-475c-8b22-a07a2cea78f7)
+
 Finalmente, se itera el enunciado y la solución con las sugerencias entregadas por el framework, y se lleva a los siguientes resultados, lo que nos da una tarea que mantiene la dificultad de la tarea de strings del 2022-2
 
-[Ver Imagen en canva]
+![image](https://github.com/VadokDev/Talks/assets/13860406/6ed061f5-9ad7-4609-a414-a292b6f8a26a)
 
 ### Análisis Tareas de Listas del 2022
 
 Con esto, es posible hacer ciertos análisis respecto de las tareas involucradas, como por ejemplo, para el caso de la tarea de Listas de IWI-131 del 2022, primer y segundo semestre
+
+![image](https://github.com/VadokDev/Talks/assets/13860406/2c8df820-ff08-4afe-952c-4a22f5adb351)
 
 Se puede apreciar que las soluciones de las tareas de los estudiantes se acercaron bastante a las soluciones propuestas por los profesores, ésto denota que la dificultad de las tareas era la adecuada y los estudiantes comprendieron a cabalidad lo que necesitaban hacer, incluso acercándose a resolverlo casi como lo hicieron los profesores.
 
@@ -218,9 +223,13 @@ Por otro lado, para el caso de la tarea de listas del segundo semestre, las mét
 * La complejidad ciclomática de las soluciones de los estudiantes está por sobre la de los profesores, debido a que el formato del enunciado no se acerca para nada a los propuestos por la metodología, no quedó suficientemente claro qué es lo que se debía evaluar en el código, llevando a los estudiantes a evaluar más casos bordes de los que el enunciado realmente solicitaba.
 * Según el análisis de dificultad, la tarea del segundo semestre era mucho más difícil que la del primer semestre, lo que complicó a los estudiantes en su resolución
 
+![image](https://github.com/VadokDev/Talks/assets/13860406/386de9bc-3c6a-4c93-9985-2c562870a7ba)
+
 ### Análisis Tareas de Archivos del 2022
 
 Otro caso interesante de analizar son las tareas de Archivos del 2022, particularmente, en el primer semestre.
+
+![image](https://github.com/VadokDev/Talks/assets/13860406/16cb7b79-e65c-42ca-9e1c-b74e8764e8bd)
 
 Podemos notar que la tarea del primser semestre, las solucionse de los estudiantes se acercaron mucho a las soluciones propuestas por los profesores, excepto en la complejidad ciclomática, donde la complejidad ciclomática del código de los profesores es mucho más grande que la de los estudiantes.
 
